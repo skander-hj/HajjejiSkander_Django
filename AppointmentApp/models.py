@@ -19,6 +19,8 @@ class Appointment(models.Model):
         max_length=9, choices=Status.choices,
         default=Status.PENDING
     )
+    def __str__(self):
+        return f"Rendez-vous de {self.patient} avec {self.doctor} - {self.appointment_date}"
 
     prescription = models.FileField(
         upload_to="prescriptions/", blank=True,

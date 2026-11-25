@@ -40,7 +40,9 @@ class Doctor(User):
     )
 
     specialties = models.ManyToManyField(Specialty)
-
+    class Meta:
+        verbose_name = 'Doctor'
+        verbose_name_plural = 'Doctors'
 
 class Patient(User):
     national_id = models.CharField(
@@ -57,3 +59,6 @@ class Patient(User):
     birth_date = models.DateField(
         validators=[validate_past_date]
     )
+    class Meta:
+        verbose_name = 'Patient'
+        verbose_name_plural = 'Patients'
